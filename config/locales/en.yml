@@ -30,6 +30,10 @@ en:
       head: "Framgia E-Learning"
       name: "Framgia VN"
       logout: "Logout"
+      login: "Log In"
       title:
         RubyonRails: "Ruby On Rails"
         facebook: "Facebook"
+    categories:
+      list: "All Categories"
+      category: "Categories"

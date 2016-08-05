@@ -1,0 +1,12 @@
+<div class="col-md-4 blog-main box text-center">
+  <div class="panel panel-info"><!-- Panel Info -->
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= category.name %></h3>
+      <p><%= category.description %></p>
+    </div>
+    <div class="panel-body"><!-- Panel Body -->
+      <div style="color: #3BB2D6;"><%= time_ago_in_words(category.created_at) %></div>
+    </div>
+  </div>
+</div>
+
