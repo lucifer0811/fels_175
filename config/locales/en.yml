@@ -29,7 +29,8 @@ en:
       help: "Help"
       head: "Framgia E-Learning"
       name: "Framgia VN"
-      logout: "Logout"
+      logout: "#{user.name}"
+      login: "Log In"
       title:
         RubyonRails: "Ruby On Rails"
         facebook: "Facebook"
