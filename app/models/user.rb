@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :lockable, :omniauthable,
-    omniauth_providers: [:facebook]
+    omniauth_providers: [:google_oauth2, :facebook]
   has_many :lessons, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :destroy
