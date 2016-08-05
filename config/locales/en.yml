@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  views:
+    static_pages:
+      about: "About"
+      contact: "Contact"
+      home: "Home"
+      help: "Help"
+      head: "Framgia E-Learning"
+      name: "Framgia VN"
+      logout: "Logout"
+      title:
+        RubyonRails: "Ruby On Rails"
+        facebook: "Facebook"
