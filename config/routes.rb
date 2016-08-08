@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  concern :paginatable do
+    get "(page/:page)", action: :index, on: :collection, as: ""
+  end
   root to: "static_pages#home"
 
   get "static_pages/help"
@@ -11,6 +14,10 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+  end
+
+  namespace :admin do
+    resources :categories, concerns: :paginatable
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
