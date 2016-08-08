@@ -21,7 +21,7 @@
         </li>
       <% else %>
         <li class="<%= "active" if current_page?(new_user_session_path)%>">
-          <%= link_to t("views.static_pages.logout"), new_user_session_path %>
+          <%= link_to t("views.static_pages.login"), new_user_session_path %>
         </li>
       <% end %>
     </ul>
