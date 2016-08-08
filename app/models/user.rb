@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :lockable, :omniauthable,
-    omniauth_providers: [:google_oauth2, :facebook]
+    omniauth_providers: [:google_oauth2, :facebook, :twitter]
   has_many :lessons, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :destroy
@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   def self.new_with_session params, session
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      else
+        data = session["devise.twitter_data"] && session["devise.twitter_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
     end

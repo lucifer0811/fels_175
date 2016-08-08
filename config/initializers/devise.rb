@@ -27,6 +27,7 @@ Devise.setup do |config|
   require "devise/orm/active_record"
   require "figaro"
   config.omniauth :facebook, ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"]
+  config.omniauth :twitter, ENV["TWITTER_ID"], ENV["TWITTER_SECRET"]
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

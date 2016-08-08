@@ -52,6 +52,7 @@ end
 gem "devise"
 gem "delayed_job_active_record"
 gem "omniauth-facebook"
+gem "omniauth-twitter"
 gem "figaro"
 gem "omniauth-google-oauth2"
 gem "omniauth"
