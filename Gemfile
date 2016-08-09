@@ -57,6 +57,7 @@ group :production do
 end
 
 gem "devise"
+gem "cancancan"
 gem "delayed_job_active_record"
 gem "omniauth-facebook"
 gem "figaro"
