@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805042433) do
+ActiveRecord::Schema.define(version: 20160805062650) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160805042433) do
     t.string   "encrypted_password",     default: "", null: false
     t.string   "name"
     t.string   "avatar"
+    t.boolean  "is_admin"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
