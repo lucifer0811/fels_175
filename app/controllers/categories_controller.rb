@@ -7,5 +7,4 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all.order("created_at DESC").page params[:page]
   end
-
 end

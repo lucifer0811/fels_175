@@ -24,6 +24,8 @@ en:
     formats:
       default: "%B  %d  %Y"
   hello: "Hello world"
+  flash:
+    error: "Error"
   title:
     close: "Close"
   messages:
@@ -51,6 +53,7 @@ en:
       fail_create: "Category not added"
       edit: "Edit"
       delete: "Destroy"
+      update: "Update"
     pagination:
       first: " FIRST"
       last: "LAST"
