@@ -5,6 +5,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
+    @words = Word.all
   end
 
   def index

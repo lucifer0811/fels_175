@@ -1,0 +1,10 @@
+<div class="field_category">
+  <%= @category.name %><br/ >
+  <%= @category.description %><br/>
+  <%= t "views.categories.list_word" %><br />
+  <% @words.each_with_index do |word, index| %>
+    <%= word.content %><tab />
+  <% end %><br />
+  <%= link_to t("views.words.add"), new_admin_category_word_path(@category),
+    class: "btn btn-primary glyphicon glyphicon-plus"%>
+</div>
