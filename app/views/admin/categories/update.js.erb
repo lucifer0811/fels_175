@@ -1,10 +1,11 @@
 <% if @category.invalid? %>
   $('.category-errors').html('<%= j render "shared/error_messages",
     object: @category %>');
-  $('.category-errors').delay(5000).slideUp();
+  $('.category-errors').delay(500).slideUp();
 <% else %>
-  $('#mynewcategory').modal('hide');
-  $('.category_title').val('');
-  $('.category_content').val('');
+  $('#myupdatecategory_<%= @category.id %>').modal('hide');
+  $('#category_<%= @category.id %>').fadeOut(500, function(){
+    $(this).remove();
   $('#category-index').prepend($('<%= j render @category %>').fadeIn('slow'));
+  });
 <% end %>
