@@ -1,0 +1,9 @@
+<div class="row" id="user_info">
+  <div class="image">
+    <%= image_tag(current_user.avatar, class: "thumbnail") %>
+  </div>
+  <div class="information">
+    <%= t "views.users.name" %>: <%= @user.name %><br />
+    <%= t "views.users.email" %>: <%= @user.email %>
+  </div>
+</div>

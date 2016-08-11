@@ -48,6 +48,11 @@ en:
       truncate: "..."
     flash:
       object_nil: "No exist object"
+    user:
+      update: "Update profile"
+      profile: "Profile"
+      email: "Email"
+      name: "Name"
   controller:
     categories:
       category_nil: "No Category"
