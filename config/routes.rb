@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   concern :paginatable do
@@ -19,8 +21,10 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
   resources :activities
-
   resources :categories, concerns: :paginatable, only: [:index, :show]
+  authenticate :user, lambda {|u| u.is_admin?} do
+    mount Sidekiq::Web => "/sidekiq"
+  end
   namespace :admin do
     resources :categories, concerns: :paginatable
   end

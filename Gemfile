@@ -64,4 +64,5 @@ gem "figaro"
 gem "omniauth-google-oauth2"
 gem "omniauth"
 gem "public_activity"
-
+gem "sidekiq"
+gem "sinatra", require: false
