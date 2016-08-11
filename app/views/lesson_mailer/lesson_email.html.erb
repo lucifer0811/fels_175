@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Good news, <%= @user.name %></h1>
+    <p>
+      You have completed a lesson on <%= @lesson.created_at %>
+      of category <%= @lesson.category.name %> <br>
+    </p>
+    <p> You have just learned 20 new words, greate job ! </p>
+    <p>Practice makes perfect!</p>
+  </body>
+</html>
