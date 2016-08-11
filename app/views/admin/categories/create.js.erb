@@ -1,0 +1,10 @@
+<% if @category.invalid? %>
+  $('.category-errors').html('<%= j render "shared/error_messages",
+    object: @category %>');
+<% else %>
+  $('.category-errors').html('');
+  $("#mynewcategory").modal('hide');
+  $(".category_title").val('');
+  $(".category_content").val('');
+  $("#category-index").prepend($('<%= j render @category %>').fadeIn('slow'));
+<% end %>

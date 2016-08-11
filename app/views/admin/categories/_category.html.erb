@@ -6,6 +6,14 @@
     </div>
     <div class="panel-body">
       <div class="date_time"><%= localize_time category.created_at %></div>
+      <br>
+      <div class="btn-group">
+        <%= link_to t("views.categories.edit"),
+          "#", class: "btn btn-success" %>
+        <%= link_to t("views.categories.delete"), "#",
+          method: :delete, data: {confirm: t("messages.notice")},
+          class: "btn btn-danger" %>
+      </div>
     </div>
   </div>
 </div>

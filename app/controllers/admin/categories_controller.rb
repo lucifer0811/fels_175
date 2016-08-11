@@ -1,8 +1,7 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :load_category, only: [:show]
+  load_and_authorize_resource
 
   def new
-    @category = Category.new
   end
 
   def show
@@ -10,14 +9,24 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all.order("created_at DESC").page params[:page]
+    @category = Category.new
+  end
+
+  def create
+    respond_to do |format|
+      if @category.save
+        format.html {redirect_to @category,
+          notice: t "controller.categories.notice" }
+        format.js
+      else
+        format.html {render :new}
+        format.js
+      end
+    end
   end
 
   private
-  def load_category
-    @category = Category.find_by id: params[:id]
-    unless @category
-      flash[:danger] = t "views.flash.object_nil"
-      redirect_to admin_categories_path
-    end
+  def category_params
+    params.require(:category).permit :name, :description
   end
 end

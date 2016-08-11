@@ -24,6 +24,10 @@ en:
     formats:
       default: "%B  %d  %Y"
   hello: "Hello world"
+  title:
+    close: "Close"
+  messages:
+    notice: "You sure?"
   views:
     static_pages:
       about: "About"
@@ -40,6 +44,13 @@ en:
     categories:
       list: "All Categories"
       category: "Categories"
+      new: "New category"
+      create: "Create"
+      add: "New"
+      created: "Category added"
+      fail_create: "Category not added"
+      edit: "Edit"
+      delete: "Destroy"
     pagination:
       first: " FIRST"
       last: "LAST"
@@ -56,3 +67,4 @@ en:
   controller:
     categories:
       category_nil: "No Category"
+      notice: "Category was successfully created."

@@ -1,5 +1,16 @@
-<div class="row"><h3><%= t "views.categories.list" %></h3></div>
-<div class="row">
-  <%= render @categories %>
+<div class="container">
+  <div class="row" id="category_header">
+    <div class="col-md-4" id="button_create">
+      <button type="button" class="btn btn-primary btn-sm"
+        data-toggle="modal" data-target="#mynewcategory"
+        data-whatever="@fat"><%= t "views.categories.new" %></button>
+    </div>
+    <div class="col-md-3" id="title_categories"><h2>
+      <%= t "views.categories.list" %></h2></div>
+  </div>
+  <div class="row" id="category-index">
+    <%= render @categories %>
+  </div>
+  <%= paginate @categories %>
+  <%= render "form_create" %>
 </div>
-<%= paginate @categories %>
