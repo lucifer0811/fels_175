@@ -1,5 +1,17 @@
 <footer class="footer">
   <div class="row">
-    <small><%= t "views.static_pages.name" %></small>
+    <small><%= link_to t("views.static_pages.name"),
+      "https://www.facebook.com/FramgiaVietnam/?fref=ts" %></small>
+    <ul>
+      <li>
+        <%= link_to t("views.static_pages.about"), static_pages_about_path %>
+      </li>
+      <li>
+        <%= link_to t("views.static_pages.contact"), static_pages_contact_path %>
+      </li>
+      <li>
+        <%= link_to t("views.static_pages.help"), static_pages_help_path %>
+      </li>
+    </ul>
   </div>
 </footer>

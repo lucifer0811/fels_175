@@ -67,3 +67,4 @@ gem "public_activity"
 gem "sidekiq"
 gem "sinatra", require: false
 gem "whenever", require: false
+gem "ransack"
