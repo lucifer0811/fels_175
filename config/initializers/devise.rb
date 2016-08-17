@@ -204,6 +204,19 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
+  Warden::Manager.after_set_users except: :fetch do |record, warden, options|
+    if record.respond_to?(:update_tracked_fields!) && warden.authenticated?(options[:scope])
+      if record.is_admin?
+        Rails.logger.info I18n.t("config.devise.logger.admin_login")
+      end
+    end
+  end
+
+  Warden::Manager.before_logout do |record, warden, options|
+    if record.is_admin?
+      Rails.logger.info I18n.t("config.devise.logger.admin_logout")
+    end
+  end
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
