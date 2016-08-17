@@ -2,3 +2,5 @@ categoriess:
   per_page: 9
 image:
   size: "100"
+word:
+  number: 4

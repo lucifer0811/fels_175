@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for([:admin, :category, @word])do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :Questions %>
+      <%= f.text_field :content, class: "form-control" %>
+
+      <%= f.label :content, "Answer" %><br />
+
+      <%= f.fields_for :answers do |t| %>
+        <%= render "answer_fields", f: t %>
+      <% end %>
+
+      <%= f.submit t("views.categories.create"), id: "create_word",
+        class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

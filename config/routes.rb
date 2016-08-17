@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
   namespace :admin do
-    resources :categories, concerns: :paginatable
+    resources :categories, concerns: :paginatable do
+      resources :words
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
