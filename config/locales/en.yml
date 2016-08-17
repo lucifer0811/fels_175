@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  mail:
+    monthly:
+      subject: "Monthly report"
+    result:
+      subject: "Test result"
   datetime:
     formats:
       default: "%B  %d  %Y"

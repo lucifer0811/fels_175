@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  def self.monthly_email
+    @users = User.all
+    @users.each do |user|
+      wordcount = user.lessons.recent(1.month.ago).results.word.size
+      LessonMailer.monthly_email user.email, wordcount
+    end
+  end
   private
   def avatar_size
     if avatar.size > 5.megabytes
