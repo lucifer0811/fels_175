@@ -39,6 +39,9 @@ en:
   flash:
     error: "Error"
     check: "Are you sure?"
+    success: "Updated information"
+    fail: "Not update"
+    check: "Are you Sure?"
   title:
     close: "Close"
   messages:
@@ -89,6 +92,8 @@ en:
       place_holder: "Search by name or email"
     words:
       add: "New"
+      edit: "Edit"
+      update: "Update"
   controller:
     categories:
       category_nil: "No Category"
@@ -96,3 +101,6 @@ en:
     words:
       create_success: "Word created"
       create_fail: "Word not create"
+      notice: "Word deleted"
+      fail: "Word not delete"
+      exsist: "Word cannot delete"

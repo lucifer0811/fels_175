@@ -138,11 +138,19 @@ ul.list_word {
 }
 #create_word {
   margin-bottom: 20px;
+  margin-top: 20px;
   // margin-left : 200px;
 }
 .field_category {
   padding-top: 5px;
   padding-bottom:  30px;
+  .new_category {
+    float: right;
+  }
+  #category_info {
+    border-right: 1px solid black;
+    margin-bottom: 10px;
+  }
 }
 #list_user {
   border: 1px solid #e7e7e7;
