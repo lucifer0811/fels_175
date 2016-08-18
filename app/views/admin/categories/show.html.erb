@@ -1,10 +1,26 @@
-<div class="field_category">
-  <%= @category.name %><br/ >
-  <%= @category.description %><br/>
-  <%= t "views.categories.list_word" %><br />
-  <% @words.each_with_index do |word, index| %>
-    <%= word.content %><tab />
-  <% end %><br />
-  <%= link_to t("views.words.add"), new_admin_category_word_path(@category),
-    class: "btn btn-primary glyphicon glyphicon-plus"%>
+<div class="row">
+  <div class="field_category">
+    <div class="col-xs-6 col-md-4" id="category_info">
+      <%= @category.name %><br/ >
+      <%= @category.description %><br/>
+      <div class="new_category"><%= link_to t("views.words.add"),
+        new_admin_category_word_path(@category),
+        class: "btn btn-primary glyphicon glyphicon-plus"%></div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <center><%= t "views.categories.list_word" %></center><br />
+      <% @words.each do |word| %>
+        <div class="col-xs-6 col-sm-3">
+          <%= word.content %><tab />
+          <%= link_to edit_admin_category_word_path(word.category, word) do %>
+            <span class= "glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to  [:admin, @category, word], method: :delete,
+            data: {confirm: t("flash.check")} do %>
+            <span class= "glyphicon glyphicon-trash text-danger"></span>
+          <% end %><br />
+        </div>
+      <% end %><br />
+    </div>
+  </div>
 </div>
