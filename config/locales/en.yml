@@ -25,6 +25,13 @@ en:
       subject: "Monthly report"
     result:
       subject: "Test result"
+  config:
+    devise:
+      logger:
+        admin_logout: "Admin logout email: #{record.email},
+          ip:  #{warden.request.remote_ip}, at: #{Time.now}"
+        admin_login: "Admin login email #{record.email},
+          ip:  #{warden.request.remote_ip}, at: #{Time.now}"
   datetime:
     formats:
       default: "%B  %d  %Y"
