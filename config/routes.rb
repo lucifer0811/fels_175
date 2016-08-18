@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :categories, concerns: :paginatable do
       resources :words
     end
+    resources :users, concerns: :paginatable, only: [:index, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

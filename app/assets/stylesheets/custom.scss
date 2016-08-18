@@ -21,11 +21,20 @@
   background-color: #e7e7e7;
   padding-right: 50px;
   height: 25px;
+  border-top: 1px solid #eaeaea;
   small {
     background-color: #e7e7e7;
     float: left;
     padding-left: 50px;
     padding-top: 5px;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
   }
 }
 #image_framgia {
@@ -44,8 +53,6 @@
   margin-bottom: 50px;
   margin-right: 440px;
   .image {
-    margin:2%;
-    size: 300;
   }
   .information {
     padding-left: 10px;
@@ -67,7 +74,7 @@
 #button_submit {
   margin-bottom: 30px;
 }
-#new_user {
+#new_user, #edit_user {
   .title_new_user {
     border: 1px solid #e7e7e7;
     background: #e7e7e7;
@@ -137,4 +144,14 @@ ul.list_word {
   padding-top: 5px;
   padding-bottom:  30px;
 }
-
+#list_user {
+  border: 1px solid #e7e7e7;
+  .title_table {
+    background-color: #7FDBFF;
+  }
+}
+#form_search {
+  float: left;
+  margin-left: 2px;
+  margin-bottom: 10px;
+}

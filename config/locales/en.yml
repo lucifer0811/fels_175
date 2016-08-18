@@ -38,6 +38,7 @@ en:
   hello: "Hello world"
   flash:
     error: "Error"
+    check: "Are you sure?"
   title:
     close: "Close"
   messages:
@@ -75,11 +76,17 @@ en:
       truncate: "..."
     flash:
       object_nil: "No exist object"
-    user:
+    users:
+      all_users: "All user"
       update: "Update profile"
       profile: "Profile"
       email: "Email"
       name: "Name"
+      stt: "STT"
+      user: "Users"
+      Avatar: "Avatar"
+      notice: "User was deleted"
+      place_holder: "Search by name or email"
     words:
       add: "New"
   controller:

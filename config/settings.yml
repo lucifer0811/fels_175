@@ -1,5 +1,7 @@
-categoriess:
+categories:
   per_page: 9
+users:
+  per_page: 5
 image:
   size: "100"
 word:
