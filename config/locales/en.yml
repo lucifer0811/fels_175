@@ -98,6 +98,7 @@ en:
     categories:
       category_nil: "No Category"
       notice: "Category was successfully created."
+      word: "Word"
     words:
       create_success: "Word created"
       create_fail: "Word not create"
