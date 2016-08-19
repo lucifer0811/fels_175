@@ -1,17 +1,28 @@
-<div class="row" id="user_info">
-  <div class="image">
-    <% if current_user.avatar.present? %>
-      <%= image_tag(current_user.avatar, class: "thumbnail") %>
-    <% else %>
-      <%= image_tag("fram1.jpg", class: "thumbnail", size: "300") %>
-    <% end %>
+<div class="row" >
+  <div class="col-md-4" id="user_info">
+    <div class="image">
+      <% if current_user.avatar.present? %>
+        <%= image_tag(current_user.avatar, class: "thumbnail") %>
+      <% else %>
+        <%= image_tag("fram1.jpg", class: "thumbnail", size: "200") %>
+      <% end %>
+    </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <div class="information">
+      <%= render "follow_form" %>
+      <%= t "views.users.name" %>: <%= @user.name %><br />
+      <%= t "views.users.email" %>: <%= @user.email %>
+    </div>
   </div>
-  <section class="stats">
-    <%= render "shared/stats" %>
-  </section>
-  <div class="information">
-    <%= render "follow_form" %>
-    <%= t "views.users.name" %>: <%= @user.name %><br />
-    <%= t "views.users.email" %>: <%= @user.email %>
+  <div class="col-md-8" id="user_activities">
+    <%= link_to t("views.categories.list_word"), "#", class: "btn btn-primary",
+      id: "button" %>
+    <%= link_to t("views.users.lesson"), "#", class: "btn btn-primary",
+      id: "button" %>
+    <h3 class="title_list_activity"><%= t "views.users.activity" %></h3>
+    <%= render "activity" %>
+    <%= paginate @activities %>
   </div>
 </div>
