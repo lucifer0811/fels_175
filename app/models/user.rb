@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def self.monthly_email
     @users = User.all
     @users.each do |user|
@@ -38,9 +37,22 @@ class User < ActiveRecord::Base
       LessonMailer.monthly_email user.email, wordcount
     end
   end
+
+  def follow other_user
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow other_user
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following? other_user
+    following.include?(other_user)
+  end
+
   private
   def avatar_size
-    if avatar.size > 5.megabytes
+    if avatar.size > Settings.image.size.megabytes
       errors.add(:avatar, "should be less than 5MB")
     end
   end

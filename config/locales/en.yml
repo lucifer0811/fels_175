@@ -90,6 +90,10 @@ en:
       Avatar: "Avatar"
       notice: "User was deleted"
       place_holder: "Search by name or email"
+      follow: "Follow"
+      unfollow: "Unfollow"
+      following: "following"
+      followers: "followers"
     words:
       add: "New"
       edit: "Edit"

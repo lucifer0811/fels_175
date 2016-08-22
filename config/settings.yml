@@ -4,5 +4,6 @@ users:
   per_page: 5
 image:
   size: "100"
+  size: 5
 word:
   number: 4

@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
-  before_action :logged_in_user
   def create
-    @other_user = User.find_by id: params[:other_user_id]
-    current_user.active_relationships.create(followed_id: @other_user.id)
+    @user = User.find_by id: params[:followed_id]
+    current_user.follow @user
     respond_to do |format|
       format.html {redirect_to @user}
       format.js
@@ -10,8 +9,8 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @other_user = Relationship.find_by(id: params[:id]).followed
-    current_user.active_relationships.find_by(followed_id: @other_user.id).destroy
+    @user = Relationship.find(params[:id]).followed
+    current_user.unfollow @user
     respond_to do |format|
       format.html {redirect_to @user}
       format.js

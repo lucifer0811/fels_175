@@ -15,7 +15,7 @@
         <% else %>
           <td><%= image_tag("fram1.jpg", size: "50") %></td>
         <% end %>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name, user %></td>
         <td><%= user.email %></td>
         <td>
           <%=link_to [:admin, user], method: :delete,
