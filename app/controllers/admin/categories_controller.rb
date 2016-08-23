@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
-    @words = Word.all
+    @words = @category.words
   end
 
   def index
@@ -16,7 +16,7 @@ class Admin::CategoriesController < ApplicationController
   def create
     respond_to do |format|
       if @category.save
-        format.html {redirect_to @category,
+        format.html {redirect_to admin_categories_path,
           notice: t("controller.categories.notice")}
         format.js
       else
@@ -32,7 +32,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update_attributes category_params
-        format.html {redirect_to @category,
+        format.html {redirect_to admin_categories_path,
           notice: t("controller.categories.notice")}
         format.js
       else
@@ -53,6 +53,6 @@ class Admin::CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit :name, :description
+    params.require(:category).permit :name, :description, :avatar
   end
 end

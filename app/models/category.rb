@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
   has_many :lessons, dependent: :destroy
   has_many :words, dependent: :destroy
+  mount_uploader :avatar, AvatarUploader
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 end

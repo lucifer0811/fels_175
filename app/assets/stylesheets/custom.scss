@@ -1,6 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:     border-box;
+  -webkit-box-sizing:  border-box;
+  box-sizing:          border-box;
+}
+
+@mixin background-tile {
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  // padding: 1.5em 1.25em;
+}
+@mixin box_word {
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 30px;
+  box-shadow: 2px 2px 2px 2px #e7e7e7;
+  padding: 1.5em 1.25em;
+  margin: 0.5em 1em;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -146,10 +167,38 @@ ul.list_word {
   padding-bottom:  30px;
   .new_category {
     float: right;
+    padding-bottom:4px;
   }
   #category_info {
-    border-right: 1px solid black;
+    background: #e7e7e7;
+    @include background-tile;
     margin-bottom: 10px;
+    padding-right: 5px;
+    width: 30%;
+    margin: 0.5em 1em;
+  }
+  .category {
+    padding-top: 3px;
+    padding-bottom: 2px;
+  }
+  #list_word {
+    @include background-tile;
+    margin-left: 3px;
+    background: #e7e7e7;
+    margin-right: 3px;
+    width: 65%;
+    // border-bottom: 1px solid black;
+    margin: 0.5em 1em;
+    .word_info {
+      // @include box_word;
+      padding: 1.5em 1.25em;
+      margin: 0.5em 1em;
+      border: 1px solid black;
+      border-radius: 3px;
+      .action_word {
+        float: right;
+      }
+    }
   }
 }
 #list_user {
