@@ -47,6 +47,7 @@ en:
   messages:
     notice: "You sure?"
   views:
+
     static_pages:
       about: "About"
       contact: "Contact"
@@ -60,6 +61,8 @@ en:
         RubyonRails: "Ruby On Rails"
         facebook: "Facebook"
     categories:
+      index:
+        start_lesson: "Start"
       list: "All Categories"
       category: "Categories"
       new: "New category"
@@ -68,6 +71,8 @@ en:
       created: "Category added"
       fail_create: "Category not added"
       edit: "Edit"
+      start_lesson: "Start"
+      continue_lesson: "Continue"
       delete: "Destroy"
       update: "Update"
       list_word: "List Word"

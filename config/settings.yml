@@ -7,3 +7,4 @@ image:
   size: 5
 word:
   number: 4
+  minimum: 20
