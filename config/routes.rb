@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "static_pages/contact"
 
   get "static_pages/about"
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
   resources :users do
     member do
       get :following, :followers

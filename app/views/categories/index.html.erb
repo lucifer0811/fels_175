@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row" id="category_header">
+    <div class="col-md-3" id="title_categories">
+      <h2><%= t "views.categories.list" %></h2>
+    </div>
+  </div>
+  <div class="row" id="category-index">
+    <%= render @categories %>
+  </div>
+  <%= paginate @categories %>
+</div>

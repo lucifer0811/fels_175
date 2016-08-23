@@ -1,16 +1,35 @@
-<div class="container">
-  <div class="row" id="category_header">
-    <div class="col-md-4" id="button_create">
-      <button type="button" class="btn btn-primary btn-sm"
-        data-toggle="modal" data-target="#mynewcategory"
-        data-whatever="@fat"><%= t "views.categories.new" %></button>
-    </div>
-    <div class="col-md-3" id="title_categories"><h2>
-      <%= t "views.categories.list" %></h2></div>
+<div class="row" id="category_header">
+  <div class="title" id="title_categories">
+    <center><h3><%= t "views.categories.list" %></h3></center>
   </div>
-  <div class="row" id="category-index">
-    <%= render @categories %>
-  </div>
-  <%= paginate @categories %>
-  <%= render "form_create" %>
 </div>
+<div class="row" id="button_create">
+  <div class="col-md-4">
+    <button type="button" class="btn btn-primary btn-sm"
+      data-toggle="modal" data-target="#mynewcategory"
+      data-whatever="@fat"><%= t "views.categories.new" %></button>
+  </div>
+  <div class="col-md-3", id="form_search_category">
+    <%= render "form_search" %>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        <%= t "views.users.name" %>
+      </th>
+      <th>
+        <%= t "views.categories.number_word" %>
+      </th>
+      <th>
+        <%= t "views.users.action" %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
+<%= paginate @categories %>
+<%= render "form_create" %>

@@ -16,8 +16,10 @@ user.save!
 10.times do |n|
   name = Faker::Name.name
   description  = "abc-#{n+1}-cba"
+  avatar = Faker::Avatar.image("my-own-slug")
   Category.create!(name: name,
-    description: description)
+    description: description,
+    avatar: avatar)
 end
 
 10.times do |n|

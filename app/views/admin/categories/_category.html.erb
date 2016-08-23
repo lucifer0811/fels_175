@@ -1,27 +1,31 @@
-<div class="col-md-4 blog-main box text-center" id="category_<%= category.id %>">
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= link_to category.name,
-        admin_category_path(category) %></h3>
-      <p><%= category.description %></p>
-    </div>
-    <div class="panel-body">
-      <div class="date_time"><%= localize_time category.created_at %></div>
-      <br>
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-warning"
-          data-toggle="modal" data-target="#myupdatecategory_<%= category.id %>">
-          <%= t "views.categories.edit" %></button>
-        <%= link_to t("views.categories.delete"), [:admin, category],
-          method: :delete, class: "btn btn-danger", remote: true %>
-        <%= form_for Lesson.new do |f| %>
-          <%= f.hidden_field :category_id, value: category.id %>
-          <%= f.submit t("views.categories.index.start_lesson"),
-            class: "btn btn-primary" %>
-        <% end %>
-
-      </div>
-    </div>
+<div class="row" id="category_<%= category.id %>">
+  <div class="category_show">
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to category.name, admin_category_path(category) %>
+        </td>
+        <td>
+          <%= category.words.count %>
+        </td>
+        <td>
+          <div class="table-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-warning"
+                data-toggle="modal" data-target="#myupdatecategory_<%= category.id %>">
+                <%= t "views.categories.edit" %></button>
+              <%= link_to t("views.categories.delete"), [:admin, category],
+                method: :delete, class: "btn btn-danger", remote: true %>
+              <%= form_for Lesson.new do |f| %>
+                <%= f.hidden_field :category_id, value: category.id %>
+                <%= f.submit t("views.categories.index.start_lesson"),
+                  class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </div>
   <div class="modal fade" id="myupdatecategory_<%= category.id %>" tabindex="-1"
     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -33,7 +37,7 @@
           <h4 class="modal-title" id="myModalLabel">
             <%= t "views.categories.edit" %></h4>
         </div>
-        <%= form_for [:admin, category], :method => :put, remote: true do |f| %>
+        <%= form_for [:admin, category], method: :put, remote: true do |f| %>
           <div class="modal-body">
             <div class="category-errors">
             </div>

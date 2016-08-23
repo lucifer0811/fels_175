@@ -12,6 +12,7 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to edit_lesson_path @lesson
     else
+      flash[:error] = @lesson.error
       redirect_to :back
     end
   end

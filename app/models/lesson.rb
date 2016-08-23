@@ -36,8 +36,7 @@ class Lesson < ActiveRecord::Base
   private
   def category_word_count
     unless self.category && self.category.words.count >= Settings.word.minimum
-      self.errors.add :category,
-        I18n.t("lesson.errors.not_enough_words")
+      self.error.add I18n.t("lesson.errors.not_enough_words")
     end
   end
 

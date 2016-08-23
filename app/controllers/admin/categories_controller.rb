@@ -9,7 +9,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all.order("created_at DESC").page params[:page]
+    @q = Category.search(params[:q])
+    @categories = @q.result(distinct: true).order("created_at DESC")
+      .page(params[:page]).per(Settings.users.per_page)
     @category = Category.new
   end
 
@@ -30,6 +32,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
+    byebug
     respond_to do |format|
       if @category.update_attributes category_params
         format.html {redirect_to admin_categories_path,
