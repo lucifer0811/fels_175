@@ -6,7 +6,11 @@
       <%= image_tag("fram1.jpg", class: "thumbnail", size: "300") %>
     <% end %>
   </div>
+  <section class="stats">
+    <%= render "shared/stats" %>
+  </section>
   <div class="information">
+    <%= render "follow_form" %>
     <%= t "views.users.name" %>: <%= @user.name %><br />
     <%= t "views.users.email" %>: <%= @user.email %>
   </div>
