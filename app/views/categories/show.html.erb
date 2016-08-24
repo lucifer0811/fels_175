@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="field_category">
+    <div class="col-xs-6 col-md-4" id="category_info">
+      <div class="category" %>
+        <%= @category.name %><br/ >
+        <%= @category.description %><br/>
+      </div>
+      <% if @category.avatar.present? %>
+        <%= image_tag(@category.avatar, class: "thumbnail") %>
+      <% else %>
+        <%= image_tag("English.jpg", class: "thumbnail", size: "300") %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-8" id="list_word">
+      <div class="row" >
+        <%= t "views.categories.list_word" %><br />
+        <% @words.each do |word| %>
+          <div class="word_info">
+            <%= word.content %><tab />
+            <% word.answers.each do |answer| %>
+              <%= answer.content %><tab/>
+            <% end %>
+          </div>
+        <% end %><br />
+      </div>
+    </div>
+  </div>
+</div>

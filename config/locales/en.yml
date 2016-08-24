@@ -79,6 +79,7 @@ en:
       delete: "Destroy"
       update: "Update"
       list_word: "List Word"
+      place_holder: "Search by name category"
     pagination:
       first: " FIRST"
       last: "LAST"
@@ -103,6 +104,7 @@ en:
       following: "following"
       followers: "followers"
       activity: "Activities"
+      noname: "No Name"
     words:
       add: "New"
       edit: "Edit"

@@ -1,0 +1,8 @@
+<center><h2><%= t "views.users.all_users" %></h2></center>
+<div class="row">
+  <%= render "form_search" %>
+</div><br />
+<div class="row">
+  <%= render "user" %>
+</div>
+<%= paginate @users %>
