@@ -8,3 +8,4 @@ image:
 word:
   number: 4
   minimum: 20
+email_delay: 8
