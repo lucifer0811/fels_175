@@ -1,0 +1,18 @@
+<% @activities.each do |activity| %>
+  <% if activity.trackable_type.include?("Relationship") %>
+    <div class="row">
+      <div class="col-md-2">
+        <% if activity.owner.avatar.present? %>
+          <%= image_tag(owner.avatar, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("fram1.jpg", class: "thumbnail", size: "75") %>
+        <% end %>
+      </div>
+      <div class="action_activity">
+        <%= link_to activity.owner.name, activity.owner %>
+          <%= t "views.users.follow" %> <%= link_to activity.recipient.name,
+          activity.recipient %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
