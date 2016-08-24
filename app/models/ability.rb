@@ -7,6 +7,8 @@ class Ability
         can :manage, :all
       else
         can :read, :all
+        can :update, [Result, Lesson]
+        can :create, Lesson
       end
   end
 end

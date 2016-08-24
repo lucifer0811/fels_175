@@ -1,0 +1,20 @@
+<% provide :title, t("views.lessons.edit.content") %>
+<div class="exam_info">
+  <div class="category">
+    <%= t "view.lessons.show.category" %>:
+    <%= @lesson.category.name %>
+  </div>
+  <%= t "view.lessons.edit.lesson_date" %>:
+  <%= @lesson.created_at %>
+</div>
+<h1><%= t "views.lessons.edit.content" %></h1>
+<%= form_for @lesson do |f| %>
+  <ol>
+    <%= f.fields_for :results do |builder| %>
+      <%= render "lesson_words", f: builder %>
+    <% end %>
+  </ol>
+  <div class="action-finish-lesson" >
+    <%= f.submit t("views.lessons.edit.submit_button"), class: "btn btn-primary" %>
+  </div>
+<% end %>

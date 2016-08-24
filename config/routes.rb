@@ -25,7 +25,17 @@ Rails.application.routes.draw do
   authenticate :user, lambda {|u| u.is_admin?} do
     mount Sidekiq::Web => "/sidekiq"
   end
+
+  resources :lessons, except: :destroy do
+    resources :results, except: [:create, :destroy]
+  end
+
   namespace :admin do
+
+  resources :lessons, except: :destroy do
+    resources :results, except: [:create, :destroy]
+  end
+
     resources :categories, concerns: :paginatable do
       resources :words
     end
