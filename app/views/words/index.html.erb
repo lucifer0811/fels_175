@@ -1,0 +1,36 @@
+<div class="row" id="filter_words">
+  <%= form_tag("", id: "form-submit", method: "get") do %>
+    <center><h2><%= t "views.categories.list_word" %></h2></center>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3" id="select_form_tag">
+        <%= t "views.categories.category" %>:
+        <%= select_tag( :category_id, options_for_select(@categories
+          .collect{ |category| [category.name, category.id]},
+          params[:category_id]), include_blank: Settings.all,
+          class: "form-group") %>
+      </div>
+      <div class="col-md-6">
+        <%= t "views.words.options" %>
+        <% Settings.word_filter.each do |key, status| %>
+          <%= radio_button_tag :word_filter, status, params[:word_filter] == status %>
+          <%= label_tag "word_filter_#{status}", key, class: "font-normal" %>
+        <% end %>
+      </div><br />
+    </div>
+    <center><div class="row" id="filter">
+      <%= submit_tag :filter, class: "btn btn-primary", id: "button_filter"%>
+    </div></center>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6" id="list_word_filter"></div>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <%= render "word" %>
+  </div>
+</div>
+<%= paginate @words %>

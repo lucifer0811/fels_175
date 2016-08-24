@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
   resources :categories, concerns: :paginatable, only: [:index, :show]
+  resources :words, only: :index
   authenticate :user, lambda {|u| u.is_admin?} do
     mount Sidekiq::Web => "/sidekiq"
   end

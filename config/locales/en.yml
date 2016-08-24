@@ -78,6 +78,8 @@ en:
       continue_lesson: "Continue"
       delete: "Destroy"
       update: "Update"
+      word: "Word"
+      action: "Action"
       list_word: "List Word"
       place_holder: "Search by name category"
     pagination:
@@ -109,6 +111,8 @@ en:
       add: "New"
       edit: "Edit"
       update: "Update"
+      word: "Words"
+      options: "Options filter: "
   controller:
     categories:
       category_nil: "No Category"

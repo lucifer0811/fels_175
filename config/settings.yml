@@ -4,6 +4,8 @@ users:
   per_page: 8
 categories:
   per_page: 6
+words:
+  per_page: 10
 image:
   size: "100"
   size: 5
@@ -11,3 +13,5 @@ word:
   number: 4
   minimum: 20
 email_delay: 8
+word_filter: {learned: "learned", not_learned: "not_learned", all: "show_all"}
+all : "All"

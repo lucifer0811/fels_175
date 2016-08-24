@@ -26,6 +26,9 @@ class Word < ActiveRecord::Base
   scope :in_category, -> category_id do
     where category_id: category_id if category_id.present?
   end
+  scope :show_all, -> user_id {}
+  scope :learned, ->(ids){where id: ids}
+  scope :not_learned, ->(ids){where.not id: ids}
 
   belongs_to :category
   has_many :answers, dependent: :destroy
