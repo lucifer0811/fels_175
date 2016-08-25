@@ -1,6 +1,6 @@
 class Lesson < ActiveRecord::Base
-  include PublicActivity::Common
-
+  include PublicActivity::Model
+  tracked only: [:update], owner: :user
   belongs_to :user
   belongs_to :category
 
@@ -8,8 +8,7 @@ class Lesson < ActiveRecord::Base
 
   before_create :build_result
   after_create :send_remind_email
-  after_update :cancel_remind_email, :create_public_activty,
-    :send_complete_email
+  after_update  :send_complete_email, :cancel_remind_email
 
   validates :category, presence: true
   validate :category_word_count
@@ -46,20 +45,17 @@ class Lesson < ActiveRecord::Base
 
   def cancel_remind_email
     if self.is_completed?
-      Delayed::Job.find_by(target_id: self.id).delete
+      email = Delayed::Job.find_by target_id: self.id
+      email.delete if email.present?
     end
   end
 
   def send_remind_email
     LessonMailer.delay(run_at: Settings.email_delay.seconds.from_now,
-      target_id: self.id).remind_email self.user, self
+      target_id: self.id).remind_email self
   end
+
   def send_complete_email
-    LessonWorker.perform_async self.user, self
-  end
-  def create_public_activty
-    if self.is_completed?
-      self.create_activity :create, owner: self.user
-    end
+    LessonWorker.perform_async self.id
   end
 end

@@ -1,6 +1,7 @@
 class LessonMailer < ApplicationMailer
-  def lesson_email user, lesson
-    @user = user
+
+  def lesson_finished_email lesson
+    @user = lesson.user
     @lesson = lesson
     mail to: @user.email, subject: I18n.t("mail.result.subject")
   end
@@ -11,8 +12,8 @@ class LessonMailer < ApplicationMailer
     mail to: @user.email, subject: I18n.t("mail.monthly.subject")
   end
 
-  def remind_email user, lesson
-    @user = user
+  def remind_email lesson
+    @user = lesson.user
     @lesson = lesson
     mail to: @user.email, subject: I18n.t("mail.remind.subject")
   end

@@ -29,6 +29,4 @@ Config.setup do |config|
   # Parse numeric values as integers instead of strings.
   #
   # config.env_parse_values = false
-  Sidekiq.hook_rails!
-  Sidekiq.remove_delay!
 end

@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 
+gem "letter_opener"
+gem "sidekiq"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.6"
 # Use sqlite3 as the database for Active Record
@@ -64,7 +66,6 @@ gem "figaro"
 gem "omniauth-google-oauth2"
 gem "omniauth"
 gem "public_activity"
-gem "sidekiq"
 gem "sinatra", require: false
 gem "whenever", require: false
 gem "ransack"
