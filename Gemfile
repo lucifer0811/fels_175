@@ -69,3 +69,4 @@ gem "public_activity"
 gem "sinatra", require: false
 gem "whenever", require: false
 gem "ransack"
+gem "redis-rails"

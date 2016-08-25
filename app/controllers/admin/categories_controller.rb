@@ -5,11 +5,13 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
-    @words = @category.words
+    @words = @category.words.page(params[:page]).per Settings.words.per_page
   end
 
   def index
-    @categories = Category.all.order("created_at DESC").page params[:page]
+    @q = Category.search params[:q]
+    @categories = @q.result(distinct: true).order("created_at DESC")
+      .page(params[:page]).per Settings.categories.per_page
     @category = Category.new
   end
 

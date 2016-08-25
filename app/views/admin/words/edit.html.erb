@@ -1,8 +1,7 @@
-<%= t "views.words.edit" %>
 <div class="row">
+  <center><h2><%= t "views.words.edit" %></h2></center>
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [:admin, @word.category, @word] do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
 
       <%= f.label :Questions %>
       <%= f.text_field :content, class: "form-control" %>

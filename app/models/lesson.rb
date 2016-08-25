@@ -1,6 +1,7 @@
 class Lesson < ActiveRecord::Base
-  include PublicActivity::Model
-  tracked only: [:update], owner: :user
+  include PublicActivity::Common
+
+
   belongs_to :user
   belongs_to :category
 
