@@ -16,23 +16,31 @@
     </div>
     <div class="col-xs-12 col-md-8" id="list_word">
       <div class="row" >
-        <%= t "views.categories.list_word" %><br />
-        <% @words.each do |word| %>
-          <div class="word_info">
-            <%= word.content %><tab />
-            <div class="action_word">
-              <%= link_to edit_admin_category_word_path(word.category, word) do %>
-                <span class= "glyphicon glyphicon-pencil"></span>
-              <% end %>
-              <%= link_to  [:admin, @category, word], method: :delete,
-                data: {confirm: t("flash.check")} do %>
-                <span class= "glyphicon glyphicon-trash text-danger"></span>
-              <% end %><br />
-            </div>
-          </div>
-        <% end %><br />
-      </div>
-      <div class="row">
+        <center><h2><%= t "views.categories.list_word" %></h2></center><br />
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td><%= t "views.categories.word" %></td>
+              <td><%= t "views.categories.action" %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @words.each do |word| %>
+              <tr>
+                <td><%= word.content %><tab /><td>
+                <td>
+                  <%= link_to edit_admin_category_word_path(word.category, word) do %>
+                    <span class= "glyphicon glyphicon-pencil"></span>
+                  <% end %>
+                  <%= link_to  [:admin, @category, word], method: :delete,
+                    data: {confirm: t("flash.check")} do %>
+                    <span class= "glyphicon glyphicon-trash text-danger"></span>
+                  <% end %><br />
+                </td>
+              </tr>
+            <% end %><br />
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

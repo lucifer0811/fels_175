@@ -9,6 +9,7 @@ class LessonMailer < ApplicationMailer
     @wordcount = wordcount
     @user = user
     mail to: @user.email, subject: I18n.t("mail.monthly.subject")
+  end
 
   def remind_email user, lesson
     @user = user

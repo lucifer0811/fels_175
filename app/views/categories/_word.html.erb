@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td><%= t "views.categories.word" %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %><tab /><td>
+      </tr>
+    <% end %><br />
+  </tbody>
+</table>

@@ -166,7 +166,6 @@ ul.list_word {
     padding-bottom:4px;
   }
   #category_info {
-    background: #e7e7e7;
     @include background-tile;
     margin-bottom: 10px;
     padding-right: 5px;
@@ -178,12 +177,12 @@ ul.list_word {
     padding-bottom: 2px;
   }
   #list_word {
-    @include background-tile;
     margin-left: 3px;
-    background: #e7e7e7;
     margin-right: 3px;
     width: 65%;
     margin: 0.5em 1em;
+    border-left: 1px ridge #e7e7e7;
+    margin-left: 5px;
     .word_info {
       padding: 1.5em 1.25em;
       margin: 0.5em 1em;
@@ -252,4 +251,32 @@ ul.list_word {
 }
 #information_user {
   padding-bottom: 5px;
+}
+#filter{
+  margin-top: 10px;
+  #button_filter {
+    display:inline-block;
+    margin-left: 5px;
+    min-width: 50px;
+    width: 100px;
+    height: 40px;
+    padding:5px 10px;
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+}
+#select_form_tag {
+  margin-top: 3px;
+}
+#filter_words {
+  margin-bottom: 5px;
+}
+.thead_table_word {
+  background: #F0F8FF;
+}
+#list_word_filter {
+  border-bottom: 1px ridge #e7e7e7;
+}
+#title_name{
+  color: #808000;
 }

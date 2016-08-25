@@ -16,6 +16,9 @@ class Lesson < ActiveRecord::Base
 
   scope :by_user, -> (user) {where user_id: user.id}
   scope :recent, -> (time) {where("lessons.created_at > ?", time) if time.present?}
+  scope :of_category, -> category_id do
+    where category_id: category_id if category_id.present?
+  end
 
   accepts_nested_attributes_for :results,
     reject_if: proc {|attributes| attributes[:answer_id].blank?}
@@ -42,7 +45,7 @@ class Lesson < ActiveRecord::Base
   end
 
   def cancel_remind_email
-    if self.is_complete?
+    if self.is_completed?
       Delayed::Job.find_by(target_id: self.id).delete
     end
   end
@@ -55,7 +58,7 @@ class Lesson < ActiveRecord::Base
     LessonWorker.perform_async self.user, self
   end
   def create_public_activty
-    if self.is_complete?
+    if self.is_completed?
       self.create_activity :create, owner: self.user
     end
   end

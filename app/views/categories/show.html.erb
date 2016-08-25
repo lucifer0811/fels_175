@@ -13,15 +13,9 @@
     </div>
     <div class="col-xs-12 col-md-8" id="list_word">
       <div class="row" >
-        <%= t "views.categories.list_word" %><br />
-        <% @words.each do |word| %>
-          <div class="word_info">
-            <%= word.content %><tab />
-            <% word.answers.each do |answer| %>
-              <%= answer.content %><tab/>
-            <% end %>
-          </div>
-        <% end %><br />
+        <center><h3><%= t "views.categories.list_word" %></h3></center><br />
+        <%= render "word" %>
+        <%= paginate @words %>
       </div>
     </div>
   </div>
