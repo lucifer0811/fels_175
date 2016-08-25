@@ -1,0 +1,19 @@
+<% @users.each do |user| %>
+  <div class="col-md-3" id="information_user">
+    <div class="row">
+      <% if user.avatar.present? %>
+        <%= link_to image_tag(user.avatar, class: "thumbnail"), user %>
+      <% else %>
+        <%= link_to image_tag("fram1.jpg", class: "thumbnail", size: "200"), user %>
+      <% end %>
+    </div>
+    <div class="row">
+      <% if user.name.present? %>
+        <%= t "views.users.name" %>: <%= user.name %>
+      <% else %>
+        <%= t "views.users.name" %>: <%= t "views.users.noname" %>
+      <% end %><br />
+      <%= t "views.users.email" %>: <%= user.email %>
+    </div>
+  </div>
+<% end %>

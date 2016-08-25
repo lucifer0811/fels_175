@@ -1,7 +1,9 @@
 categories:
   per_page: 9
 users:
-  per_page: 5
+  per_page: 8
+categories:
+  per_page: 6
 image:
   size: "100"
   size: 5

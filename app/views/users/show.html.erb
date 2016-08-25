@@ -12,7 +12,11 @@
     </section>
     <div class="information">
       <%= render "follow_form" %>
-      <%= t "views.users.name" %>: <%= @user.name %><br />
+      <% if @user.name.present? %>
+        <%= t "views.users.name" %>: <%= @user.name %>
+      <% else %>
+        <%= t "views.users.name" %>: <%= t "views.users.noname" %>
+      <% end %><br />
       <%= t "views.users.email" %>: <%= @user.email %>
     </div>
   </div>
