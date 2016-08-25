@@ -11,7 +11,7 @@ image:
   size: 5
 word:
   number: 4
-  minimum: 20
+  minimum: 5
 email_delay: 8
 word_filter: {learned: "learned", not_learned: "not_learned", all: "show_all"}
 all : "All"

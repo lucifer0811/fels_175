@@ -13,7 +13,7 @@ class Admin::WordsController < ApplicationController
       flash[:success] = t "controller.words.create_success"
       redirect_to admin_category_path(@word.category)
     else
-      flash[:danger] = t "controller.words.create_fail"
+      flash[:danger] = @word.errors.full_messages
       render :new
     end
   end

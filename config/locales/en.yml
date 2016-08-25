@@ -67,7 +67,7 @@ en:
       index:
         start_lesson: "Start"
       list: "All Categories"
-      category: "Categories"
+      category: "Category"
       new: "New category"
       create: "Create"
       add: "New"
@@ -106,6 +106,8 @@ en:
       following: "following"
       followers: "followers"
       activity: "Activities"
+      lesson: "do lesson"
+      do_lesson: "do lesson in category: "
       noname: "No Name"
     words:
       add: "New"
@@ -113,6 +115,15 @@ en:
       update: "Update"
       word: "Words"
       options: "Options filter: "
+    answer:
+      validate:
+        uniqueness: "Answers are not unique"
+    lessons:
+      lesson:
+        status_finished: "Lesson is learned"
+        status_doing: "Lesson is learning"
+      edit:
+        submit_button: "Finish"
   controller:
     categories:
       category_nil: "No Category"
@@ -124,3 +135,8 @@ en:
       notice: "Word deleted"
       fail: "Word not delete"
       exsist: "Word cannot delete"
+    lessons:
+      flash:
+        success:
+          finish: "Finish Lesson"
+          success: "Finish success lesson"

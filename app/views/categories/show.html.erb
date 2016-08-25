@@ -2,13 +2,13 @@
   <div class="field_category">
     <div class="col-xs-6 col-md-4" id="category_info">
       <div class="category" %>
-        <%= @category.name %><br/ >
-        <%= @category.description %><br/>
+        <%= t "views.categories.name" %>: <b><%= @category.name %></b><br/ >
+        <%= t "views.categories.description" %>: <b><%= @category.description %></b><br/>
       </div>
       <% if @category.avatar.present? %>
-        <%= image_tag(@category.avatar, class: "thumbnail") %>
+        <%= image_tag(@category.avatar, class: "thumbnail", size: "200") %>
       <% else %>
-        <%= image_tag("English.jpg", class: "thumbnail", size: "300") %>
+        <%= image_tag("English.jpg", class: "thumbnail", size: "200") %>
       <% end %>
     </div>
     <div class="col-xs-12 col-md-8" id="list_word">

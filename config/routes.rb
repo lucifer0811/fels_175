@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   concern :paginatable do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
-  root to: "static_pages#home"
+  root to: "users#show"
 
   get "static_pages/help"
 

@@ -24,7 +24,6 @@ class LessonsController < ApplicationController
     completed_lesson_params[:is_completed] = true
     if @lesson.update_attributes completed_lesson_params
       flash[:success] = t "controllers.lessons.flash.success.finish"
-      @lesson.create_activity :create, owner: current_user
       redirect_to lesson_path @lesson
     else
       flash[:danger] = t "controllers.lessons.flash.danger.finish"

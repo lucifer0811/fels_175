@@ -70,6 +70,7 @@
 #user_info {
   margin-top: 20px;
   padding-left: 80px;
+  padding-bottom: 15px;
   width: auto;
   .image {
   }
@@ -160,13 +161,15 @@ ul.list_word {
 }
 .field_category {
   padding-top: 5px;
-  padding-bottom:  30px;
+  padding-bottom: 50px;
+  .category {
+    margin-top: 20px;
+  }
   .new_category {
-    float: right;
-    padding-bottom:4px;
+    float: left;
+    padding-bottom: 10px;
   }
   #category_info {
-    @include background-tile;
     margin-bottom: 10px;
     padding-right: 5px;
     width: 30%;
@@ -181,7 +184,6 @@ ul.list_word {
     margin-right: 3px;
     width: 65%;
     margin: 0.5em 1em;
-    border-left: 1px ridge #e7e7e7;
     margin-left: 5px;
     .word_info {
       padding: 1.5em 1.25em;
@@ -229,9 +231,8 @@ ul.list_word {
 }
 #user_activities {
   margin-top: 20px;
-  border-left: 2px ridge #e7e7e7;
   .title_list_activity {
-  border-bottom: 2px ridge #e7e7e7;
+    border-bottom: 2px ridge #e7e7e7;
   }
 }
 .action_activity {
@@ -241,10 +242,10 @@ ul.list_word {
   display:inline-block;
   margin-left: 5px;
   min-width: 50px;
-  width: 300px;
-  height: 100px;
+  width: 100px;
+  height: 30px;
   padding:5px 10px;
-  font-size: 3.5em;
+  font-size: 1em;
 }
 #search_field_category {
   margin-left: 2px;
@@ -272,11 +273,21 @@ ul.list_word {
   margin-bottom: 5px;
 }
 .thead_table_word {
-  background: #F0F8FF;
+  background: #e7e7e7;
 }
 #list_word_filter {
   border-bottom: 1px ridge #e7e7e7;
 }
 #title_name{
   color: #808000;
+}
+#button_create {
+  padding-bottom: 20px;
+}
+#form_search_category {
+  padding-left: 10px;
+}
+.lesson_word {
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
