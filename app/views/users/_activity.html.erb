@@ -1,18 +1,22 @@
 <% @activities.each do |activity| %>
-  <% if activity.trackable_type.include?("Relationship") %>
-    <div class="row">
-      <div class="col-md-2">
-        <% if activity.owner.avatar.present? %>
-          <%= image_tag(owner.avatar, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("fram1.jpg", class: "thumbnail", size: "75") %>
-        <% end %>
-      </div>
-      <div class="action_activity">
+  <div class="row">
+    <div class="col-md-2">
+      <% if activity.owner.avatar.present? %>
+        <%= image_tag(owner.avatar, class: "thumbnail") %>
+      <% else %>
+        <%= image_tag("fram1.jpg", class: "thumbnail", size: "75") %>
+      <% end %>
+    </div>
+    <div class="action_activity">
+      <% if activity.trackable_type.include?("Relationship") %>
         <%= link_to activity.owner.name, activity.owner %>
           <%= t "views.users.follow" %> <%= link_to activity.recipient.name,
           activity.recipient %>
-      </div>
+      <% else activity.trackable_type.include?("Lesson") %>
+        <%= link_to activity.owner.name, activity.owner %>
+          <%= t "views.users.do_lesson" %> <%= link_to activity.trackable.category.name,
+          activity.recipient %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 <% end %>
