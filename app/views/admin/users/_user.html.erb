@@ -2,8 +2,8 @@
   <thead class="title_table">
     <th><%= t "views.users.stt" %></th>
     <th><%= t "views.users.Avatar" %></th>
-    <th><%= t "views.users.name" %></th>
-    <th><%= t "views.users.email" %></th>
+    <th class="user_name"><b><%= t "views.users.name" %></b></th>
+    <th class="user_email"><b><%= t "views.users.email" %></b></th>
     <th></th>
   </thead>
   <tbody>
@@ -15,8 +15,8 @@
         <% else %>
           <td><%= image_tag("fram1.jpg", size: "50") %></td>
         <% end %>
-        <td><%= link_to user.name, user %></td>
-        <td><%= user.email %></td>
+        <td><b><%= link_to user.name, user %></b></td>
+        <td><b><%= user.email %></b></td>
         <td>
           <%=link_to [:admin, user], method: :delete,
             data: {confirm: t("flash.check")} do %>

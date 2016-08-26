@@ -2,45 +2,24 @@
   <div class="field_category">
     <div class="col-xs-6 col-md-4" id="category_info">
       <div class="category" %>
-        <%= @category.name %><br/ >
-        <%= @category.description %><br/>
+        <%= t "views.categories.category" %><br />
+        <%= t "views.categories.name" %>: <b><%= @category.name %></b><br/ >
+        <%= t "views.categories.description" %>: <b><%= @category.description %></b><br/>
       </div>
       <% if @category.avatar.present? %>
-        <%= image_tag(@category.avatar, class: "thumbnail") %>
+        <%= image_tag(@category.avatar, class: "thumbnail", size: "200") %>
       <% else %>
-        <%= image_tag("English.jpg", class: "thumbnail", size: "300") %>
+        <%= image_tag("English.jpg", class: "thumbnail", size: "200") %>
       <% end %>
-      <div class="new_category"><%= link_to t("views.words.add"),
-        new_admin_category_word_path(@category),
-        class: "btn btn-primary glyphicon glyphicon-plus"%></div>
     </div>
     <div class="col-xs-12 col-md-8" id="list_word">
       <div class="row" >
         <center><h2><%= t "views.categories.list_word" %></h2></center><br />
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <td><%= t "views.categories.word" %></td>
-              <td><%= t "views.categories.action" %></td>
-            </tr>
-          </thead>
-          <tbody>
-            <% @words.each do |word| %>
-              <tr>
-                <td><%= word.content %><tab /><td>
-                <td>
-                  <%= link_to edit_admin_category_word_path(word.category, word) do %>
-                    <span class= "glyphicon glyphicon-pencil"></span>
-                  <% end %>
-                  <%= link_to  [:admin, @category, word], method: :delete,
-                    data: {confirm: t("flash.check")} do %>
-                    <span class= "glyphicon glyphicon-trash text-danger"></span>
-                  <% end %><br />
-                </td>
-              </tr>
-            <% end %><br />
-          </tbody>
-        </table>
+        <div class="new_category"><%= link_to t("views.words.add"),
+          new_admin_category_word_path(@category),
+          class: "btn btn-primary glyphicon glyphicon-plus"%></div>
+        <%= render "word" %>
+        <% paginate @words %>
       </div>
     </div>
   </div>

@@ -1,0 +1,5 @@
+<%= search_form_for [:admin, @q] do |f| %>
+  <%= f.text_field :name_cont,
+    placeholder: t("views.categories.place_holder") %>
+  <%= f.submit %>
+<% end %>

@@ -13,19 +13,24 @@
     <div class="information">
       <%= render "follow_form" %>
       <% if @user.name.present? %>
-        <%= t "views.users.name" %>: <%= @user.name %>
+        <%= t "views.users.name" %>: <b><%= @user.name %></b>
       <% else %>
-        <%= t "views.users.name" %>: <%= t "views.users.noname" %>
+        <%= t "views.users.name" %>: <b><%= t "views.users.noname" %></b>
       <% end %><br />
-      <%= t "views.users.email" %>: <%= @user.email %>
+      <%= t "views.users.email" %>: <b><%= @user.email %></b>
     </div>
   </div>
   <div class="col-md-8" id="user_activities">
-    <%= link_to t("views.categories.list_word"), words_path, class: "btn btn-primary",
-      id: "button" %>
-    <%= link_to t("views.users.lesson"), "#", class: "btn btn-primary",
-      id: "button" %>
-    <h3 class="title_list_activity"><%= t "views.users.activity" %></h3>
+    <center>
+      <% if current_page? root_path %>
+        <%= link_to t("views.categories.list_word"), words_path, class: "btn btn-primary",
+          id: "button" %>
+        <%= link_to t("views.users.lesson"), categories_path, class: "btn btn-primary",
+          id: "button" %>
+      <% end %>
+    </center>
+    <h3 class="title_list_activity">
+      <center><%= t "views.users.activity" %></center></h3>
     <%= render "activity" %>
     <%= paginate @activities %>
   </div>
